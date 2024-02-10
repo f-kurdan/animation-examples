@@ -1,0 +1,30 @@
+.top-panel {
+    background-color: #222222;
+    height: 58px;
+}
+
+.top-panel__logo {
+    margin-left: 14.7px;
+    margin-top: 15px;
+}
+
+.top-panel__preview {
+    width: 87.23px;
+    height: 34px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: #3E87F8;
+}
+
+.top-panel__preview__text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: white;
+}
