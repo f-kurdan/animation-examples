@@ -1,12 +1,17 @@
 import './App.css';
-import Navbar from './navbar/navbar.tsx';
+import SettingsPanel from './main/settings-panel/settings-panel';
+import TopPanel from './top-panel/top-panel';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Navbar />
+        <TopPanel />
       </header>
+      <main>
+        <SettingsPanel />
+      </main>
+
     </div>
   );
 }
