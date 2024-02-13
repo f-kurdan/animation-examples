@@ -1,5 +1,6 @@
 import React from 'react'
 import BlurInput from './settings-options/blur-input'
+import DelayInput from './settings-options/delay-input'
 import DurationInput from './settings-options/duration-input'
 import OpacityInput from './settings-options/opacity-input'
 import ScaleInput from './settings-options/scale-input'
@@ -25,6 +26,9 @@ const SettingsOptions = () => {
       </li>
       <li>
         <DurationInput />
+      </li>
+      <li>
+        <DelayInput />
       </li>
     </ul>
   )
