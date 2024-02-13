@@ -1,4 +1,5 @@
-import React, { useRef } from 'react'
+import React from 'react'
+import BlurInput from './settings-options/blur-input'
 import OpacityInput from './settings-options/opacity-input'
 import ScaleInput from './settings-options/scale-input'
 import TranslateInput from './settings-options/translate-input'
@@ -17,6 +18,9 @@ const SettingsOptions = () => {
       </li>
       <li>
         <ScaleInput />
+      </li>
+      <li>
+        <BlurInput />
       </li>
     </ul>
   )

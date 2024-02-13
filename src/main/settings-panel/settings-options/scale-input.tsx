@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { setTranslateInputStyleProperties } from '../../../utils'
 
 const ScaleInput = () => {
     const [inputValue, setInputValue] = useState('0')
@@ -14,16 +13,23 @@ const ScaleInput = () => {
 
     useEffect(() => {
         const rangeInput = scaleInputRef.current;
+
         rangeInput?.addEventListener('input', () => {
-            setTranslateInputStyleProperties(rangeInput, rangeInput.value, 300)
+            const value = parseInt(rangeInput.value);
+            const trackWidth = (Math.abs(value) / 3) / 2 + '%';
+
+            rangeInput?.style.setProperty('--after-width', trackWidth)
         });
 
         const inputRangeValue = localStorage.getItem(`scaleInputValue`)
         if (inputRangeValue) {
-            setInputValue(inputRangeValue)
+            setInputValue(inputRangeValue);
 
             if (rangeInput) {
-                setTranslateInputStyleProperties(rangeInput, inputRangeValue, 300)
+                const value = parseInt(rangeInput.value);
+                const trackWidth = (Math.abs(value) / 3) / 2 + '%';
+
+                rangeInput?.style.setProperty('--after-width', trackWidth)
                 rangeInput.value = inputRangeValue
             }
         }
@@ -34,7 +40,7 @@ const ScaleInput = () => {
     return (
         <label className='settings-panel__options__option'>
             <span className='settings-panel__options__option__label'>Scale</span>
-            <input className='settings-panel__options__translate-option' ref={scaleInputRef} onChange={onChange} type="range" defaultValue={inputValue} min="-300" max="300" />
+            <input className='settings-panel__options__opacity-option' ref={scaleInputRef} onChange={onChange} type="range" defaultValue={inputValue} min="0" max="300" />
             <span className='settings-panel__options__value'>{decimalForm}</span>
         </label>
     )
