@@ -2,6 +2,7 @@ import React from 'react'
 import BlurInput from './settings-options/blur-input'
 import DelayInput from './settings-options/delay-input'
 import DurationInput from './settings-options/duration-input'
+import Easing from './settings-options/easing'
 import OpacityInput from './settings-options/opacity-input'
 import ScaleInput from './settings-options/scale-input'
 import TranslateInput from './settings-options/translate-input'
@@ -29,6 +30,9 @@ const SettingsOptions = () => {
       </li>
       <li>
         <DelayInput />
+      </li>
+      <li>
+        <Easing />
       </li>
     </ul>
   )

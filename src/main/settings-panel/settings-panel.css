@@ -12,7 +12,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    row-gap: 15px;
+    row-gap: 16px;
     width: 100%;
     padding: 0px 0px;
 }
@@ -142,3 +142,46 @@
 .settings-panel__options__option input[type=range]::-moz-focus-outer {
     border: 0;
 }
+
+.settings-panel__options__easing-options-list {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 10px;
+    top: 0px;
+    right: 15%;
+    width: 118px;
+    border: none;
+    padding: 0px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: #444444;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+.settings-panel__options__easing-options-list__option {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.52px;
+    text-align: left;
+    color: #444444;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 2px;
+    gap: 7px;
+}
+
+.settings-panel__options__easing-options-list__option:hover {
+    background-color: #e9e7e7;
+}
+
+/* .settings-panel__options__easing-options-list__option {
+    margin-left: 7px;
+} */
