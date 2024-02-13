@@ -15,8 +15,8 @@ const ScaleInput = () => {
         const rangeInput = scaleInputRef.current;
 
         rangeInput?.addEventListener('input', () => {
-            const value = parseInt(rangeInput.value);
-            const trackWidth = (Math.abs(value) / 3) / 2 + '%';
+            const value = Number(rangeInput.value);
+            const trackWidth = Math.round((Math.abs(value) / 3) * 100) / 2 + '%';
 
             rangeInput?.style.setProperty('--after-width', trackWidth)
         });
@@ -26,8 +26,8 @@ const ScaleInput = () => {
             setInputValue(inputRangeValue);
 
             if (rangeInput) {
-                const value = parseInt(rangeInput.value);
-                const trackWidth = (Math.abs(value) / 3) / 2 + '%';
+                const value = Number(rangeInput.value);
+                const trackWidth =  Math.round((Math.abs(value) / 3) * 100) / 2 + '%';
 
                 rangeInput?.style.setProperty('--after-width', trackWidth)
                 rangeInput.value = inputRangeValue
@@ -35,13 +35,11 @@ const ScaleInput = () => {
         }
     }, [])
 
-    const decimalForm  = (parseInt(inputValue) / 100).toFixed(1)
-
     return (
         <label className='settings-panel__options__option'>
             <span className='settings-panel__options__option__label'>Scale</span>
-            <input className='settings-panel__options__opacity-option' ref={scaleInputRef} onChange={onChange} type="range" defaultValue={inputValue} min="0" max="300" />
-            <span className='settings-panel__options__value'>{decimalForm}</span>
+            <input className='settings-panel__options__opacity-option' ref={scaleInputRef} onChange={onChange} type="range" defaultValue={inputValue} min="0" max="3" step="0.1"/>
+            <span className='settings-panel__options__value'>{inputValue}</span>
         </label>
     )
 }
