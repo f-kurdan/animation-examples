@@ -8,7 +8,7 @@ const OpacityInput = () => {
         opacityInputRef.current = e.target
         setInputValue(e.target.value)
 
-        localStorage.setItem('opacityInput', e.target.value);
+        localStorage.setItem('opacityInputValue', e.target.value);
     }
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const OpacityInput = () => {
             rangeInput?.style.setProperty('--after-width', trackWidth)
         });
 
-        const inputRangeValue = localStorage.getItem(`opacityInput`)
+        const inputRangeValue = localStorage.getItem(`opacityInputValue`)
         if (inputRangeValue) {
             setInputValue(inputRangeValue);
 

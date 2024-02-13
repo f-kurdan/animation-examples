@@ -15,7 +15,7 @@ const TranslateInput = ({axis}:{axis: string}) => {
     useEffect(() => {
         const rangeInput = translateXInputRef.current;
         rangeInput?.addEventListener('input', () => {
-            setTranslateInputStyleProperties(rangeInput, rangeInput.value)
+            setTranslateInputStyleProperties(rangeInput, rangeInput.value, 200)
         });
 
         const inputRangeValue = localStorage.getItem(`inputRange${axis}Value`)
@@ -23,7 +23,7 @@ const TranslateInput = ({axis}:{axis: string}) => {
             setInputValue(inputRangeValue)
 
             if (rangeInput) {
-                setTranslateInputStyleProperties(rangeInput, inputRangeValue)
+                setTranslateInputStyleProperties(rangeInput, inputRangeValue, 200)
                 rangeInput.value = inputRangeValue
             }
         }
