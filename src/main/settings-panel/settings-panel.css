@@ -22,10 +22,10 @@
     width: 214px;
     height: 16px;
     display: flex;
-    flex-direction: row;    
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    column-gap: 10px;  
+    column-gap: 10px;
 }
 
 .settings-panel__options__option__label {
@@ -34,7 +34,7 @@
     line-height: 13.31px;
     text-align: right;
     color: #444444;
-    width: 40px; 
+    width: 40px;
     min-width: fit-content;
 }
 
@@ -42,9 +42,9 @@
     font-weight: 400;
     font-size: 13px;
     line-height: 15.73px;
-    text-align: left; 
+    text-align: left;
     color: #444444;
-    width: 30px;   
+    width: 30px;
 }
 
 .settings-panel__options__option input[type=range] {
@@ -71,7 +71,7 @@
     height: 12px;
     background-color: white;
     border-style: solid;
-    border-width:2px;
+    border-width: 2px;
     border-color: #AFAFAF;
     cursor: pointer;
     border-radius: 50%;
@@ -79,13 +79,13 @@
     z-index: 2;
 }
 
-input[type="range"]::before,
-input[type="range"]::after {
-  content: "";
-  position: absolute;
+.settings-panel__options__option input[type=range]::before,
+.settings-panel__options__option input[type=range]::after {
+    content: "";
+    position: absolute;
 }
 
-.settings-panel__options__option input[type=range]::before {
+.settings-panel__options__translate-option::before {
     position: absolute;
     top: 7px;
     height: 2px;
@@ -94,9 +94,9 @@ input[type="range"]::after {
     background-color: #AFAFAF;
     z-index: 1;
     width: var(--before-width, 0%);
-  }
-  
-  .settings-panel__options__option input[type=range]::after {
+}
+
+.settings-panel__options__translate-option::after {
     position: absolute;
     top: 7px;
     left: 50%;
@@ -105,9 +105,9 @@ input[type="range"]::after {
     background-color: #AFAFAF;
     z-index: 1;
     width: var(--after-width, 0%);
-  }
+}
 
-.settings-panel__options__option input[type=range]::-moz-range-track {
+.settings-panel__options__option::-moz-range-track {
     -moz-appearance: none;
     appearance: none;
     background-color: #E0E0E0;
@@ -115,18 +115,28 @@ input[type="range"]::after {
     width: 118px;
 }
 
-.settings-panel__options__option input[type=range]::-moz-range-thumb {
+.settings-panel__options__option::-moz-range-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 12px;
     height: 12px;
     background-color: white;
     border-style: solid;
-    border-width:2px;
+    border-width: 2px;
     border-color: #AFAFAF;
     cursor: pointer;
     border-radius: 50%;
     margin-top: -5px;
+}
+
+.settings-panel__options__opacity-option::after {
+    position: absolute;
+    top: 7px;
+    height: 2px;
+    border-radius: 5px 0px 0px 5px;
+    background-color: #AFAFAF;
+    z-index: 1;
+    width: var(--after-width, 0%);
 }
 
 .settings-panel__options__option input[type=range]::-moz-focus-outer {

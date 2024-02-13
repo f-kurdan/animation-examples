@@ -1,4 +1,4 @@
-export function setStyleProperties(rangeInput: HTMLInputElement, rangeValue: string) {
+export function setTranslateInputStyleProperties(rangeInput: HTMLInputElement, rangeValue: string) {
     const value = parseInt(rangeValue);
     const trackWidth = (((Math.abs(value) / 200) * 100) * (0.59)) - 5 + 'px';
 
