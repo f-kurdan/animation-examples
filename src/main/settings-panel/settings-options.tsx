@@ -1,5 +1,6 @@
 import React from 'react'
 import BlurInput from './settings-options/blur-input'
+import DurationInput from './settings-options/duration-input'
 import OpacityInput from './settings-options/opacity-input'
 import ScaleInput from './settings-options/scale-input'
 import TranslateInput from './settings-options/translate-input'
@@ -21,6 +22,9 @@ const SettingsOptions = () => {
       </li>
       <li>
         <BlurInput />
+      </li>
+      <li>
+        <DurationInput />
       </li>
     </ul>
   )
