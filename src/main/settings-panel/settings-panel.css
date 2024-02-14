@@ -1,6 +1,8 @@
 .settings-panel {
     position: absolute;
+    display: inline-block;
     right: 0px;
+    top: 0px;
     min-width: 240px;
     min-height: 763px;
     background-color: white;

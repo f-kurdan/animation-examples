@@ -1,4 +1,5 @@
 import './App.css';
+import Constainer from './main/canvas/constainer';
 import SettingsPanel from './main/settings-panel/settings-panel';
 import TopPanel from './top-panel/top-panel';
 
@@ -9,6 +10,7 @@ function App() {
         <TopPanel />
       </header>
       <main>
+        <Constainer />
         <SettingsPanel />
       </main>
 

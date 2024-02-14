@@ -15,7 +15,6 @@ const Easing = () => {
     useEffect(() => {
         const selectedEasingValue = localStorage.getItem('selectedEasingValue');
         if (selectedEasingValue) {
-            console.log('prochital')
             setSelectedValue(selectedEasingValue)
         }
     }, [])
