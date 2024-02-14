@@ -5,6 +5,7 @@ import DurationInput from './settings-options/duration-input'
 import Easing from './settings-options/easing'
 import OpacityInput from './settings-options/opacity-input'
 import ScaleInput from './settings-options/scale-input'
+import Toggle from './settings-options/toggle'
 import TranslateInput from './settings-options/translate-input'
 
 const SettingsOptions = () => {
@@ -33,6 +34,9 @@ const SettingsOptions = () => {
       </li>
       <li>
         <Easing />
+      </li>
+      <li>
+        <Toggle />
       </li>
     </ul>
   )
