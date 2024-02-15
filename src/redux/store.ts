@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-// ...
+import animationReducer from './animationSlice'
 
 export const store = configureStore({
-    reducer: {},
+    reducer: { 
+        animation: animationReducer 
+    },
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

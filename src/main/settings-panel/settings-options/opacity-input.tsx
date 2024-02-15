@@ -1,11 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { setOpacity } from '../../../redux/animationSlice'
 
 const OpacityInput = () => {
     const [inputValue, setInputValue] = useState('0')
     const opacityInputRef = useRef<HTMLInputElement | null>(null)
+    const dispatch = useDispatch()
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         opacityInputRef.current = e.target
+        dispatch(setOpacity(Number(e.target.value)))
         setInputValue(e.target.value)
 
         localStorage.setItem('opacityInputValue', e.target.value);
