@@ -1,6 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 import animationReducer from './animationSlice'
-import { persistStore, persistReducer } from 'redux-persist'
+import {
+    persistStore,
+    persistReducer,
+} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
 const persistConfig = {
@@ -12,7 +15,7 @@ const persistedAnimationReducer = persistReducer(persistConfig, animationReducer
 
 export const store = configureStore({
     reducer: {
-        animation: persistedAnimationReducer
+        animation: persistedAnimationReducer,
     },
 })
 
