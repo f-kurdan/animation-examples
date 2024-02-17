@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { setEasing } from '../../../redux/animationSlice';
 import Arrow from './arrow';
@@ -6,13 +6,11 @@ import Arrow from './arrow';
 const options = ['Linear', 'Ease', 'Ease-in', 'Ease-out', 'Ease-in-out'];
 
 const Easing = () => {
-    const [isOpen, setIsOpen] = useState(true)
     const dispatch = useDispatch()
     const easingValue = useSelector((state: any) => state.animation.easing)
 
     const onOptinClick = (value: string) => {
         dispatch(setEasing(value))
-        setIsOpen(!isOpen)
     }
 
     return (
