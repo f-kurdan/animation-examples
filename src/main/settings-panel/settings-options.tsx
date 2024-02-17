@@ -1,5 +1,7 @@
 import React from 'react'
 import BlurInput from './settings-options/blur-input'
+import Reset from './settings-options/buttons/reset'
+import Run from './settings-options/buttons/run'
 import DelayInput from './settings-options/delay-input'
 import DurationInput from './settings-options/duration-input'
 import Easing from './settings-options/easing'
@@ -37,6 +39,10 @@ const SettingsOptions = () => {
       </li>
       <li>
         <Toggle />
+      </li>
+      <li className='settings-panel__options__buttons'>
+        <Run />
+        <Reset />
       </li>
     </ul>
   )
