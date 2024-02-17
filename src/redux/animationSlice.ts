@@ -17,7 +17,7 @@ const initialState: AnimationState = {
     translateX: 0,
     translateY: 0,
     opacity: 0,
-    scale: 0,
+    scale: 1,
     blur: 0,
     speed: 0,
     delay: 0,
@@ -55,10 +55,11 @@ export const animationSlice = createSlice({
     },
     setReplay: (state, action: PayloadAction<boolean>) => {
         state.replay = action.payload
-    }
+    },
+    resetState: (state) => initialState
   },
 })
 
-export const { setTranslateX, setTranslateY, setOpacity, setScale, setBlur, setSpeed, setDelay, setEasing, setReplay } = animationSlice.actions
+export const { setTranslateX, setTranslateY, setOpacity, setScale, setBlur, setSpeed, setDelay, setEasing, setReplay, resetState } = animationSlice.actions
 
 export default animationSlice.reducer
