@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     width: calc(100% - 240px);
-    height: 100dvh;
+    height: calc(90dvh - 58px);
     box-sizing: border-box;
 }
 
@@ -31,6 +31,7 @@
     color: white;
     opacity: 0.5;
     border-radius: 5px;
+    border: dotted 4px #E5E5E5;;
     background-color: #6bb5f1;
     z-index: -1;
     transition: all 0.3s ease-out;
