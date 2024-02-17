@@ -1,14 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setScale } from '../../../redux/animationSlice'
 
 const ScaleInput = () => {
     const [inputValue, setInputValue] = useState('0')
     const scaleInputRef = useRef<HTMLInputElement | null>(null)
+    const  scaleValue = useSelector((state: any) => state.animation.scale)
+    const dispatch = useDispatch()
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         scaleInputRef.current = e.target
+        dispatch(setScale(Number(e.target.value)))
         setInputValue((e.target.value))
-
-        localStorage.setItem(`scaleInputValue`, e.target.value);
     }
 
     useEffect(() => {
@@ -21,16 +24,15 @@ const ScaleInput = () => {
             rangeInput?.style.setProperty('--after-width', trackWidth)
         });
 
-        const inputRangeValue = localStorage.getItem(`scaleInputValue`)
-        if (inputRangeValue) {
-            setInputValue(inputRangeValue);
+        if (scaleValue) {
+            setInputValue(scaleValue);
 
             if (rangeInput) {
                 const value = Number(rangeInput.value);
                 const trackWidth =  Math.round((Math.abs(value) / 3) * 100) / 2 + '%';
 
                 rangeInput?.style.setProperty('--after-width', trackWidth)
-                rangeInput.value = inputRangeValue
+                rangeInput.value = scaleValue
             }
         }
     }, [])

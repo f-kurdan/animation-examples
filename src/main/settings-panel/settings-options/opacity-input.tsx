@@ -1,18 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setOpacity } from '../../../redux/animationSlice'
 
 const OpacityInput = () => {
     const [inputValue, setInputValue] = useState('0')
     const opacityInputRef = useRef<HTMLInputElement | null>(null)
+    const opacityValue = useSelector((state: any) => state.animation.opacity)
     const dispatch = useDispatch()
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         opacityInputRef.current = e.target
         dispatch(setOpacity(Number(e.target.value)))
         setInputValue(e.target.value)
-
-        localStorage.setItem('opacityInputValue', e.target.value);
     }
 
     useEffect(() => {
@@ -25,16 +24,15 @@ const OpacityInput = () => {
             rangeInput?.style.setProperty('--after-width', trackWidth)
         });
 
-        const inputRangeValue = localStorage.getItem(`opacityInputValue`)
-        if (inputRangeValue) {
-            setInputValue(inputRangeValue);
+        if (opacityValue) {
+            setInputValue(opacityValue);
 
             if (rangeInput) {
                 const value = parseInt(rangeInput.value);
                 const trackWidth = Math.abs(value) / 2 + '%';
 
                 rangeInput?.style.setProperty('--after-width', trackWidth)
-                rangeInput.value = inputRangeValue
+                rangeInput.value = opacityValue
             }
         }
     }, [])

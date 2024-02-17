@@ -1,12 +1,13 @@
 import React from 'react'
 import './container.css'
 import ElementsPositionPreview from './elements-position-preview'
+import Image from './image'
 
 const Element = () => {
   return (
     <div className='container__element'>
-        <span className='container__element__text'>Button</span>        
-        <ElementsPositionPreview />
+      <Image />
+      <ElementsPositionPreview />
     </div>
   )
 }

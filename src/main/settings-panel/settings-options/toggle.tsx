@@ -1,28 +1,22 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setReplay } from '../../../redux/animationSlice'
 
 const Toggle = () => {
-    const [checked, setChecked] = useState(false)
+    const dispatch = useDispatch()
+    const toggleValue = useSelector((state: any) => state.animation.replay)
 
     const onCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setChecked(e.target.checked)
+        dispatch(setReplay(e.target.checked))
     }
 
-    useEffect(() => {
-        localStorage.setItem('replayToggleValue', String(checked))
-    }, [checked])
-
-    useEffect(() => {
-        const replayToggleValue = localStorage.getItem('replayToggleValue')
-        if (replayToggleValue)
-            setChecked(Boolean(replayToggleValue))
-    }, [])
-
+    console.log(toggleValue)
     return (
 
         <div className='settings-panel__options__option' style={{ 'justifyContent': 'start' }}>
             <span className='settings-panel__options__option__label' >Replay</span>
             <label className="settings-panel__options__option-switch">
-                <input onChange={onCheck} checked={checked} type="checkbox" />
+                <input onChange={onCheck} checked={toggleValue} type="checkbox" />
                 <span className="settings-panel__options__option-slider" />
             </label>
         </div>

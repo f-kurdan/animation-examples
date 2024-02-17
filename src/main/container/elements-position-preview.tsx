@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import Image from './image'
 
 const ElementsPositionPreview = () => {
   const translateX = useSelector((state: any) => state.animation.translateX)
@@ -14,13 +15,14 @@ const ElementsPositionPreview = () => {
   const replay = useSelector((state: any) => state.animation.replay)
 
   return (
+    
     <div className='container__element-position-preview'
       style={{
         'transform': `translate(${translateX}px, ${translateY}px) scale(${scale})`,
         'filter': `blur(${blur / 10}px)`,
         // 'animation': `${speed}s ${delay}s ${easing} ${replay ? 'infinite' : ''}`
       }} >
-      <span className='container__element__text'>Button</span>
+      <Image />
     </div>
   )
 }

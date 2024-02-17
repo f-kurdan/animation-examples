@@ -12,12 +12,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
-    height: 70px;
-    text-align: center;
-    color: white;
-    border-radius: 5px;
-    background-color: #2196F3;
+    width: 200px;
+    height: 100px;
 }
 
 .container__element-position-preview {
@@ -25,14 +21,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
-    height: 70px;
-    text-align: center;
+    width: 200px;
+    height: 100px;
     color: white;
     opacity: 0.5;
-    border-radius: 5px;
-    border: dotted 4px #E5E5E5;;
-    background-color: #6bb5f1;
     z-index: -1;
     transition: all 0.3s ease-out;
 }

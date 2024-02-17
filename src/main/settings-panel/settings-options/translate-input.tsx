@@ -1,20 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { setTranslateInputStyleProperties } from '../../../utils'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setTranslateX, setTranslateY } from '../../../redux/animationSlice'
 
 const TranslateInput = ({ axis }: { axis: string }) => {
     const [inputValue, setInputValue] = useState('0')
     const translateInputRef = useRef<HTMLInputElement | null>(null)
     const dispatch = useDispatch()
+    const translateValue = useSelector((state: any) => state.animation[`translate${axis}`])
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         translateInputRef.current = e.target
         const setTranslate = axis === 'X' ? setTranslateX : setTranslateY
         dispatch((setTranslate(Number(e.target.value))))
         setInputValue(e.target.value)
-
-        localStorage.setItem(`inputRange${axis}Value`, e.target.value);
     }
 
     useEffect(() => {
@@ -23,13 +22,12 @@ const TranslateInput = ({ axis }: { axis: string }) => {
             setTranslateInputStyleProperties(rangeInput, rangeInput.value, 200)
         });
 
-        const inputRangeValue = localStorage.getItem(`inputRange${axis}Value`)
-        if (inputRangeValue) {
-            setInputValue(inputRangeValue)
+        if (translateValue) {
+            setInputValue(translateValue)
 
             if (rangeInput) {
-                setTranslateInputStyleProperties(rangeInput, inputRangeValue, 200)
-                rangeInput.value = inputRangeValue
+                setTranslateInputStyleProperties(rangeInput, translateValue, 200)
+                rangeInput.value = translateValue
             }
         }
     }, [])

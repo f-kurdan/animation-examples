@@ -1,14 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setDelay } from '../../../redux/animationSlice'
 
 const DelayInput = () => {
     const [inputValue, setInputValue] = useState('0')
     const delayInputRef = useRef<HTMLInputElement | null>(null)
+    const dispatch = useDispatch()
+    const delayValue = useSelector((state: any) => state.animation.delay)
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         delayInputRef.current = e.target
+        dispatch(setDelay(Number(e.target.value)))
         setInputValue((e.target.value))
-
-        localStorage.setItem(`delayInputValue`, e.target.value);
     }
 
     useEffect(() => {
@@ -21,16 +24,15 @@ const DelayInput = () => {
             rangeInput?.style.setProperty('--after-width', trackWidth)
         });
 
-        const inputRangeValue = localStorage.getItem(`delayInputValue`)
-        if (inputRangeValue) {
-            setInputValue(inputRangeValue);
+        if (delayValue) {
+            setInputValue(delayValue);
 
             if (rangeInput) {
                 const value = Number(rangeInput.value);
                 const trackWidth =  Math.round((Math.abs(value) / 3) * 100) / 2 + '%';
 
                 rangeInput?.style.setProperty('--after-width', trackWidth)
-                rangeInput.value = inputRangeValue
+                rangeInput.value = delayValue
             }
         }
     }, [])

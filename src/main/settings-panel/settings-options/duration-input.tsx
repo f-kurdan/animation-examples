@@ -1,14 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setSpeed } from '../../../redux/animationSlice'
 
 const DurationInput = () => {
     const [inputValue, setInputValue] = useState('0')
     const durationInputRef = useRef<HTMLInputElement | null>(null)
+    const dispatch = useDispatch()
+    const durationValue = useSelector((state: any) => state.animation.duration)
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         durationInputRef.current = e.target
+        dispatch(setSpeed(Number(e.target.value)))
         setInputValue((e.target.value))
-
-        localStorage.setItem(`durationInputValue`, e.target.value);
     }
 
     useEffect(() => {
@@ -21,16 +24,15 @@ const DurationInput = () => {
             rangeInput?.style.setProperty('--after-width', trackWidth)
         });
 
-        const inputRangeValue = localStorage.getItem(`durationInputValue`)
-        if (inputRangeValue) {
-            setInputValue(inputRangeValue);
+        if (durationValue) {
+            setInputValue(durationValue);
 
             if (rangeInput) {
                 const value = Number(rangeInput.value);
                 const trackWidth =  Math.round((Math.abs(value) / 2) * 100) / 2 + '%';
 
                 rangeInput?.style.setProperty('--after-width', trackWidth)
-                rangeInput.value = inputRangeValue
+                rangeInput.value = durationValue
             }
         }
     }, [])
