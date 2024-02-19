@@ -251,22 +251,24 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 13px;
     width: 90%;   
     color: #444444;
 }
 
-.settings-panel__options__run-button {
+.settings-panel__options__button {
     border: solid 2px #AFAFAF;
     border-radius: 25px;
     padding: 5px;
     width: 40%;
     text-align: center;
+    letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease-out;
 }
 
-.settings-panel__options__run-button:hover {
+.settings-panel__options__button:hover {
     outline: solid #444444 1px;
     box-shadow: 2px 2px 4px  #AFAFAF;
 }

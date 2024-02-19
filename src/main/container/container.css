@@ -12,18 +12,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
-    height: 100px;
 }
 
-.container__element-position-preview {
+.container__element__image {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-out;
+}
+.container__elements-position-preview {
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 200px;
     height: 100px;
-    color: white;
     opacity: 0.5;
     z-index: -1;
     transition: all 0.3s ease-out;

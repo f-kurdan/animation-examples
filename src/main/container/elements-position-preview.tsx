@@ -14,11 +14,9 @@ const ElementsPositionPreview = () => {
   const easing = useSelector((state: any) => state.animation.easing)
   const replay = useSelector((state: any) => state.animation.replay)
 
-  console.log(translateX, translateY, opacity, decimalOpacity, scale, blur, speed, delay, easing, replay)
-
   return (
     
-    <div className='container__element-position-preview'
+    <div className='container__elements-position-preview'
       style={{
         'transform': `translate(${translateX}px, ${translateY}px) scale(${scale})`,
         'filter': `blur(${blur / 10}px)`,
