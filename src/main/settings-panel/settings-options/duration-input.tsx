@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setSpeed } from '../../../redux/animationSlice'
+import { setSpeed, startAnimation } from '../../../redux/animationSlice'
 
 const DurationInput = () => {
     const durationInputRef = useRef<HTMLInputElement | null>(null)
@@ -9,6 +9,7 @@ const DurationInput = () => {
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(setSpeed(Number(e.target.value)))
+        dispatch(startAnimation(false))
     }
 
     useEffect(() => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setBlur } from '../../../redux/animationSlice'
+import { setBlur, startAnimation } from '../../../redux/animationSlice'
 
 const BlurInput = () => {
     const blurInputRef = useRef<HTMLInputElement | null>(null)
@@ -9,6 +9,7 @@ const BlurInput = () => {
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(setBlur(Number(e.target.value)))
+        dispatch(startAnimation(false))
     }
 
     useEffect(() => {

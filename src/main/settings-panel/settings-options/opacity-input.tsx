@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setOpacity } from '../../../redux/animationSlice'
+import { setOpacity, startAnimation } from '../../../redux/animationSlice'
 
 const OpacityInput = () => {
     const opacityInputRef = useRef<HTMLInputElement | null>(null)
@@ -9,6 +9,7 @@ const OpacityInput = () => {
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(setOpacity(Number(e.target.value)))
+        dispatch(startAnimation(false))
     }
 
     useEffect(() => {

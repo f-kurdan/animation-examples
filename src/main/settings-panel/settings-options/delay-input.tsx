@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setDelay } from '../../../redux/animationSlice'
+import { setDelay, startAnimation } from '../../../redux/animationSlice'
 
 const DelayInput = () => {
     const delayInputRef = useRef<HTMLInputElement | null>(null)
@@ -9,6 +9,7 @@ const DelayInput = () => {
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(setDelay(Number(e.target.value)))
+        dispatch(startAnimation(false))
     }
 
     useEffect(() => {

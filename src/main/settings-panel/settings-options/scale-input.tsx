@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setScale } from '../../../redux/animationSlice'
+import { setScale, startAnimation } from '../../../redux/animationSlice'
 
 const ScaleInput = () => {
     const scaleInputRef = useRef<HTMLInputElement | null>(null)
@@ -9,6 +9,7 @@ const ScaleInput = () => {
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(setScale(Number(e.target.value)))
+        dispatch(startAnimation(false))
     }
 
     useEffect(() => {

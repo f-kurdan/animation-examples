@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { setTranslateInputStyleProperties } from '../../../utils'
 import { useDispatch, useSelector } from 'react-redux'
-import { setTranslateX, setTranslateY } from '../../../redux/animationSlice'
+import { setTranslateX, setTranslateY, startAnimation } from '../../../redux/animationSlice'
 
 const TranslateInput = ({ axis }: { axis: string }) => {
     const translateInputRef = useRef<HTMLInputElement | null>(null)
@@ -10,7 +10,8 @@ const TranslateInput = ({ axis }: { axis: string }) => {
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const setTranslate = axis === 'X' ? setTranslateX : setTranslateY
-        dispatch((setTranslate(Number(e.target.value))))
+        dispatch(setTranslate(Number(e.target.value)))
+        dispatch(startAnimation(false))
     }
 
     useEffect(() => {
