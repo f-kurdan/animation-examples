@@ -11,6 +11,7 @@ export interface AnimationState {
   delay: number,
   easing: string,
   replay: boolean,  
+  start: boolean
 }
 
 const initialState: AnimationState = {
@@ -22,7 +23,8 @@ const initialState: AnimationState = {
     speed: 0,
     delay: 0,
     easing: 'linear',
-    replay: false,  
+    replay: false, 
+    start: false 
 }
 
 export const animationSlice = createSlice({
@@ -56,10 +58,13 @@ export const animationSlice = createSlice({
     setReplay: (state, action: PayloadAction<boolean>) => {
         state.replay = action.payload
     },
-    resetState: (state) => initialState
+    resetState: (state) => initialState,
+    startAnimation: (state, action: PayloadAction<boolean>) => {
+        state.start = action.payload
+    }
   },
 })
 
-export const { setTranslateX, setTranslateY, setOpacity, setScale, setBlur, setSpeed, setDelay, setEasing, setReplay, resetState } = animationSlice.actions
+export const { setTranslateX, setTranslateY, setOpacity, setScale, setBlur, setSpeed, setDelay, setEasing, setReplay, resetState, startAnimation } = animationSlice.actions
 
 export default animationSlice.reducer
