@@ -4,7 +4,7 @@ import './container.css'
 import ElementsPositionPreview from './elements-position-preview'
 import Image from './image'
 
-const Element = () => {
+const Element = ({ repeat }: { repeat: boolean }) => {
   const translateX = useSelector((state: any) => state.animation.translateX)
   const translateY = useSelector((state: any) => state.animation.translateY)
   const opacity = useSelector((state: any) => state.animation.opacity)
@@ -16,8 +16,6 @@ const Element = () => {
   const easing = useSelector((state: any) => state.animation.easing)
   const replay = useSelector((state: any) => state.animation.replay)
   const start = useSelector((state: any) => state.animation.start)
-
-  console.log('animation ', `${speed}s ${delay}s ${easing.toLowerCase()} ${replay ? 'infinite' : ''}`)
 
   const properties: any = {}
   if (translateX || translateY || scale)
@@ -34,14 +32,15 @@ const Element = () => {
       to {
         transform: ${properties['transform']};
         opacity: ${properties['opacity']};
+        filter: ${properties['filter']};
       }
     }
   `;
-console.log('keyframes', keyframes)
+
   return (
     <div className='container__element'>
-      <div className='container__element__image'
-        style={start ? { 'animation': `slideIn ${speed}s ${delay}s ${easing.toLowerCase()} ${replay ? 'infinite' : ''}`} : {}}>
+      <div key={start} className='container__element__image'
+        style={start ? { 'animation': `slideIn ${speed}s ${delay}s ${easing.toLowerCase()} ${replay ? 'infinite' : ''}` } : {}}>
         <Image />
       </div>
       <ElementsPositionPreview />
