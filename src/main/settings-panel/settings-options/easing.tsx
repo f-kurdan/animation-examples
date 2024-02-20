@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { setEasing, startAnimation } from '../../../redux/animationSlice';
+import { setEasing, resetAnimationCount } from '../../../redux/animationSlice';
 import Arrow from './arrow';
 
 const options = ['Linear', 'Ease', 'Ease-in', 'Ease-out', 'Ease-in-out'];
@@ -11,7 +11,7 @@ const Easing = () => {
 
     const onOptinClick = (value: string) => {
         dispatch(setEasing(value))
-        dispatch(startAnimation(false))
+        dispatch(resetAnimationCount())
     }
 
     return (

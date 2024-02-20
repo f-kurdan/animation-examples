@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setReplay, startAnimation } from '../../../redux/animationSlice'
+import { setReplay, resetAnimationCount } from '../../../redux/animationSlice'
 
 const Toggle = () => {
     const dispatch = useDispatch()
@@ -8,7 +8,7 @@ const Toggle = () => {
 
     const onCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(setReplay(e.target.checked))
-        dispatch(startAnimation(false))
+        dispatch(resetAnimationCount())
     }
 
     console.log(toggleValue)
