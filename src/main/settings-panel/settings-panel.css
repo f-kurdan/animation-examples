@@ -273,12 +273,11 @@
     box-shadow: 2px 2px 4px #AFAFAF;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     .settings-panel {
-        min-height: 300px;
-        min-width: 100%;
-        right: auto;
-        left: auto;
+        min-height: fit-content;
+        right: 0px;
+        left: 0px;
         top: 80dvh;
     }
 }
