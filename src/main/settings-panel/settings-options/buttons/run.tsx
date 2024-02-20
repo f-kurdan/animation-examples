@@ -1,12 +1,16 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { startAnimation } from '../../../../redux/animationSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { increaseAnimationCount } from '../../../../redux/animationSlice'
 
 const Run = () => {
     const dispatch = useDispatch()
+    const start = useSelector((state: any) => state.animation.start)
+    const onClick = () => {
+        dispatch(increaseAnimationCount())
+    }
 
     return (
-        <div onClick={() => dispatch(startAnimation(true))} className='settings-panel__options__button'>Run</div>
+        <div onClick={onClick} className='settings-panel__options__button'>{start ? 'Replay' : 'Run'}</div>
     )
 }
 
